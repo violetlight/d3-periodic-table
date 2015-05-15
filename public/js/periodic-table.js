@@ -13,7 +13,7 @@ var grey = tinycolor('#EDECEB');
 
 
 
-function getX(d, i) {
+function getX(d, i, big) {
   if (i == 0) {
     return ((square+border)*2)+(offset*2);
   } else {
@@ -21,7 +21,7 @@ function getX(d, i) {
   }
 }
 
-function getY(d, i) {
+function getY(d, i, big) {
   if (i == 0) {
     return;
   }
@@ -33,13 +33,13 @@ function getY(d, i) {
   return ((d.row-1) * (square+border))+offset;
 }
 
-function getCenterX(d, i) {
-  var result = getX(d, i);
+function getCenterX(d, i, big) {
+  var result = getX(d, i, big);
   return result+half-(this.getBBox().width/2);
 }
 
-function getCenterY(d, i) {
-  var result = getY(d, i);
+function getCenterY(d, i, big) {
+  var result = getY(d, i, big);
   return result+half+(this.getBBox().height/2);
 }
 
@@ -104,6 +104,7 @@ d3.json('/data/periodic-table.json', function(error, data){
     d3.select(this).transition()
       .style("fill", "#6b6b6e");
 
+    // Detail panel
     var detail = d3.select('#detail-box');
 
     detail.select('rect')
@@ -111,10 +112,11 @@ d3.json('/data/periodic-table.json', function(error, data){
       .style('fill', '#6b6b6e');
 
     detail.selectAll('text')
-      .data(element)
+      .data([element])
       .enter()
       .append('text')
-      .attr('x', getCenterX)
+      .attr('x', '400')
+      .attr('y', '100')
       .text(element.symbol);
 
   }) // Mouseout of individual element
