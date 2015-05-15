@@ -1,3 +1,7 @@
-body {
-  padding: 0px;
+svg text {
+  font-family: helvetica;
+}
+
+svg g {
+  pointer-events: all;
 }
