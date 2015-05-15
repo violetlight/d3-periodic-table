@@ -24,8 +24,10 @@ d3.json('/data/periodic-table.json', function(error, data){
         return ((d.column-1) * (square+border))+leftOffset;
       })
       .attr('y', function(d, i) {
+        if (d.row > 7){
+          return ((d.row-1) * (square+border))+topOffset+square;
+        }
         return ((d.row-1) * (square+border))+topOffset;
       })
-      .attr('fill', '#FFF000')
-      .attr('fill-opacity', 1);
+      .attr('fill', '#FFA855')
 });
