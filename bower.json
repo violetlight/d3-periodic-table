@@ -1,0 +1,22 @@
+{
+  "name": "periodic-table",
+  "version": "0.0.0",
+  "authors": [
+    "JF <jasonhfields@gmail.com>"
+  ],
+  "keywords": [
+    "mendeleyev"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "~3.3.4",
+    "d3": "~3.5.5"
+  }
+}
